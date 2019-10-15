@@ -1,4 +1,6 @@
 
+Ref link: https://www.boraji.com/spring-4-hibernate-5-integration-example-with-zero-xml
+
 mvn archetype:generate -DgroupId=com.vmware.advalidate -DartifactId=ad-acl-validator -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
 
 mapping to remember***
