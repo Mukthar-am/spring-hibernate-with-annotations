@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <property name="LogDir" value="/tmp/dt-ad-validator/logs"/>
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <Pattern>
+                %d{yyyy-MM-dd HH:mm:ss} %-5level %logger{36}.%M\(%line\): %msg%n
+            </Pattern>
+        </layout>
+    </appender>
+
+    <logger name="com.vmware" level="info">
+        <appender-ref ref="STDOUT"/>
+    </logger>
+
+
+    <appender name="AD-VALIDATOR" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LogDir}/dt-ad-acl-validator.log</file>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <Pattern>[%d{yyyy-MM-dd HH:mm:ss} %-5level %logger{36}.%M\(%line\)]: %msg%n</Pattern>
+        </encoder>
+
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!-- rollover daily -->
+            <fileNamePattern>${LogDir}/%d{yyyy/MM/dd}/archived/dt-ad-acl-validator.%i.log
+            </fileNamePattern>
+            <timeBasedFileNamingAndTriggeringPolicy
+                    class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>10MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+        </rollingPolicy>
+    </appender>
+
+    <logger name="com.vmware" level="info" additivity="true">
+        <appender-ref ref="AD-VALIDATOR"/>
+    </logger>
+
+
+    <appender name="TestLog" class="ch.qos.logback.core.FileAppender">
+        <file>${LogDir}/tests.log</file>
+        <append>true</append>
+        <encoder>
+            <Pattern>[%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level]: %msg%n</Pattern>
+        </encoder>
+    </appender>
+    <!-- additivity=false ensures analytics events only goes to the analytics log -->
+    <logger name="TestLog" level="info" additivity="false">
+        <appender-ref ref="TestLog"/>
+    </logger>
+
+
+
+</configuration>
