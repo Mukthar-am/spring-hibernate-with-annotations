@@ -1,0 +1,15 @@
+
+mvn archetype:generate -DgroupId=com.vmware.advalidate -DartifactId=ad-acl-validator -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
+
+mapping to remember***
+- remember to include all the DAO and IMPL directories in the configuration.java
+- remeber to implement *service.java eg: PersonService.java and PersonServiceImpl.java (which has @Service annotation) for transactionality else save/update operations would fail
+- remeber, if auto-increment column is implemented, then use of @GeneratedValue(strategy = GenerationType.AUTO) and if the same column is a primary key then use @GeneratedValue(strategy = GenerationType.IDENTITY)
+
+
+CREATE TABLE person(
+    id SERIAL,
+    name VARCHAR NOT NULL,
+    country VARCHAR NOT NULL
+);
+
