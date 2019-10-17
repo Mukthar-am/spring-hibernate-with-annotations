@@ -5,9 +5,7 @@
 
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <layout class="ch.qos.logback.classic.PatternLayout">
-            <Pattern>
-                %d{yyyy-MM-dd HH:mm:ss} %-5level %logger{36}.%M\(%line\): %msg%n
-            </Pattern>
+<Pattern>%d %-5p [%c]-[%line]: %msg%n</Pattern>
         </layout>
     </appender>
 
@@ -19,7 +17,7 @@
     <appender name="AD-VALIDATOR" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <file>${LogDir}/dt-ad-acl-validator.log</file>
         <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
-            <Pattern>[%d{yyyy-MM-dd HH:mm:ss} %-5level %logger{36}.%M\(%line\)]: %msg%n</Pattern>
+<Pattern>%d %-5p [%c]-[%line]: %msg%n</Pattern>
         </encoder>
 
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
