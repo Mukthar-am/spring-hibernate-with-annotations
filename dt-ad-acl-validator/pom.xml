@@ -24,7 +24,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
         <spring4.version>4.3.7.RELEASE</spring4.version>
-        <hibernate.core.version>5.2.9.Final</hibernate.core.version>
+        <hibernate.core.version>5.4.24.Final</hibernate.core.version>
         <commons.dbcp2.version>2.1.1</commons.dbcp2.version>
 <!--        <postgres.driver.version>>9.1-901.jdbc4</postgres.driver.version>>-->
         <postgres.driver.version>9.3-1100-jdbc41</postgres.driver.version>
